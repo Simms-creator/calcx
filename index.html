@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CalcX - Multitask Calculator</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="phone">
+
+    <div class="top-bar">
+
+      <div class="logo-area">
+        <img src="logo.png" class="logo" alt="CalcX Logo">
+        <h1>CalcX</h1>
+      </div>
+
+      <button class="theme-btn" id="themeBtn">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+    </div>
+
+    <div class="tabs">
+
+      <button class="tab active" data-tab="calculator">
+        <i class="fa-solid fa-calculator"></i>
+        Calculator
+      </button>
+
+      <button class="tab" data-tab="bmi">
+        <i class="fa-solid fa-heart-pulse"></i>
+        BMI
+      </button>
+
+      <button class="tab" data-tab="age">
+        <i class="fa-solid fa-user-clock"></i>
+        Age
+      </button>
+
+      <button class="tab" data-tab="converter">
+        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+        Convert
+      </button>
+
+    </div>
+
+    <div class="content">
+
+      <section class="page active" id="calculator">
+
+        <div class="display">
+          <div class="history" id="history"></div>
+          <input type="text" id="screen" readonly value="0"/>
+        </div>
+
+        <div class="buttons">
+
+          <button class="btn operator" onclick="clearScreen()">AC</button>
+          <button class="btn operator" onclick="deleteChar()">DEL</button>
+          <button class="btn operator" onclick="appendValue('%')">%</button>
+          <button class="btn operator" onclick="appendValue('/')">÷</button>
+
+          <button class="btn" onclick="appendValue('7')">7</button>
+          <button class="btn" onclick="appendValue('8')">8</button>
+          <button class="btn" onclick="appendValue('9')">9</button>
+          <button class="btn operator" onclick="appendValue('*')">×</button>
+
+          <button class="btn" onclick="appendValue('4')">4</button>
+          <button class="btn" onclick="appendValue('5')">5</button>
+          <button class="btn" onclick="appendValue('6')">6</button>
+          <button class="btn operator" onclick="appendValue('-')">−</button>
+
+          <button class="btn" onclick="appendValue('1')">1</button>
+          <button class="btn" onclick="appendValue('2')">2</button>
+          <button class="btn" onclick="appendValue('3')">3</button>
+          <button class="btn operator" onclick="appendValue('+')">+</button>
+
+          <button class="btn zero" onclick="appendValue('0')">0</button>
+          <button class="btn" onclick="appendValue('.')">.</button>
+          <button class="btn equal" onclick="calculate()">=</button>
+
+        </div>
+      </section>
+
+      <section class="page" id="bmi">
+
+        <h2>BMI Calculator</h2>
+
+        <div class="input-box">
+          <label>Weight (kg)</label>
+          <input type="number" id="weight"/>
+        </div>
+
+        <div class="input-box">
+          <label>Height (cm)</label>
+          <input type="number" id="height"/>
+        </div>
+
+        <button class="action-btn" onclick="calculateBMI()">
+          Calculate BMI
+        </button>
+
+        <div class="result" id="bmiResult"></div>
+
+      </section>
+
+      <section class="page" id="age">
+
+        <h2>Age Calculator</h2>
+
+        <div class="input-box">
+          <label>Select Birth Date</label>
+          <input type="date" id="birthDate"/>
+        </div>
+
+        <button class="action-btn" onclick="calculateAge()">
+          Calculate Age
+        </button>
+
+        <div class="result" id="ageResult"></div>
+
+      </section>
+
+      <section class="page" id="converter">
+
+        <h2>CM → Inches</h2>
+
+        <div class="input-box">
+          <label>Centimeters</label>
+          <input type="number" id="cmInput"/>
+        </div>
+
+        <button class="action-btn" onclick="convertCM()">
+          Convert
+        </button>
+
+        <div class="result" id="convertResult"></div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
